@@ -1,5 +1,5 @@
 <?php
-include './config/nomeDasTabelas.php';
+include 'config/nomeDasTabelas.php';
 
 $servername = "localhost";
 $username = "root";

@@ -1,6 +1,6 @@
 <?php ob_start();
 
-include './database/db.php';
+include '../database/db.php';
 
 if ($_POST) { // Se existir um post, entra!
 

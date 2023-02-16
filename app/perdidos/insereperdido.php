@@ -44,6 +44,7 @@ if ($_POST){ // Se existir um post, entra!
 
 
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/main.css">
 </head>
 
 <main>
@@ -77,6 +78,8 @@ if ($_POST){ // Se existir um post, entra!
 </main>
 
 </body>
+
+<?php include './components/footer.php'; ?>
 </html>
 
 

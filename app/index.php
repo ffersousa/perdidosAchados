@@ -1,73 +1,65 @@
-<!DOCTYPE html>
-<html lang="pt">
+<?php
+include  '../database/db.php';
 
-<head>
-	<title>Escola Website - Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<meta charset="UTF-8">
-</head>
 
-<body>
-	<header class="row">
-		<div class="col-md-6 offset-md-3 text-center bg-light border border-secondary mt-5 col-sm-12">
-			<!-- offset-md-3 desloca 3 colunas para a direita  -->
-			<h2>Aplicação Escola</h2>
-		</div>
-	</header>
-	<main class="row col-md-6 offset-md-3 text-center mt-5 mb-5">
-		<section class="row">
-			<form action="login.php" method="post" id="login">
-				<label for="name">Utilizador:</label>
-				<input id="username" type="text" name="username" class="input" value="" required />
-				<br>
-				<label for="password">Password: </label>
-				<input id="password" type="password" name="password" class="input" value="" required />
-				<br>
-				<input type="submit" class="btn btn-success" value="Iniciar sessao" class="button" />
-			</form>
-		</section>
-		<label>
-			<p>Username ou password vazio</p>
-		</label>
-	</main>
-	<section class="row col-md-6 offset-md-3 mt-5 text center">
-		<a href="registo.php"> Novo utilizador </a>
+
+$emptyUsernameOrPassword = '';
+
+if ($_POST) { // Se existir um post, entra!
+
+	$username = $_POST['username'];  // Get do username
+	$password = $_POST['password'];  // Get da password
+
+	if ($username && $password) { // Validar se ambos os campos têm valor.	
+		$password = md5($password);
+
+		$query = "SELECT * FROM $utilizadores WHERE username=? AND passw=?";
+		$stmt = $db->prepare($query);
+		$stmt->execute([$username, $password]);
+		$result = $stmt->fetch();
+
+		// remover tudo isto para o ficheiro a parte (como api/)
+
+		//echo (count($result));
+		if (count($result) > 0) // Se encontrou password porque está registado
+		//if($result) // Se encontrou password porque está registado
+		{
+			session_start();
+			$_SESSION['username'] = $username; // Cria um cookie saving the username
+			$_SESSION['loggedIn'] = true; // Creates a cookie saying the user is logged in
+
+
+			header("Location: painel.php \n"); // redireciona para pagina protegida.
+		} else {
+			echo "Utilizador não encontrado";
+		}
+	} else {
+		$emptyUsernameOrPassword = true;
+	}
+}
+?>
+
+
+<?php include './components/header.php';  ?>
+
+<main class="row col-md-6 offset-md-3 text-center mt-5 mb-5">
+	<section class="row">
+		<form action="index.php" method="post">
+			<label for="name">Utilizador:</label>
+			<input type="text" name="username" class="input" value="" />
+			<br>
+			<label for="password">Password: </label>
+			<input type="password" name="password" class="input mt-1" value="" />
+			<br>
+			<input type="submit" class="btn btn-success mt-3" value="Iniciar sessao" class="button" />
+		</form>
 	</section>
-
-	<script>
-		const form = document.getElementById('login');
-
-		form.addEventListener('submit', (event) => {
-			let username = document.getElementById('username').value;
-			let password = document.getElementById('password').value;
-
-			fetch('../api/login.php', {
-					method: 'POST', // or 'PUT'
-					headers: {
-						'Accept': 'application/json',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						username,
-						password
-					})
-				})
-				.then((response) => response.json())
-				.then((data) => {
-					alert('LOGIN NO LOGIN');
-				})
-				.catch((error) => {
-					alert('FALHOU NO LOGIN');
-				});
-
-			console.log(username, password);
-
-			// stop form submission
-			event.preventDefault();
-		});
-	</script>
-</body>
-
-</html>
+	<?php
+	if ($emptyUsernameOrPassword)
+		echo '<p>Username ou password vazio</p>'
+	?>
+</main>
+<section class="row col-md-6 offset-md-3 mt-5 text center">
+	<a href="registo.php"> Novo utilizador </a>
+</section>
+<?php include './components/footer.php'; ?>

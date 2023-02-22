@@ -8,8 +8,9 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
 
 
 // httpProtocol = htttp || https
-// $_SERVER['HTTP_HOST'] = 'localhost/perdidosAchado/app'
+// $_SERVER['HTTP_HOST'] = 'localhost/'
 $baseHref = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/';
 
+echo $baseHref;
 
 ?>

@@ -1,20 +1,12 @@
 <?php 
-//include __DIR__ . '/../utilsData.php' ;
+//include __DIR__ . '/../utilsData.php'  cria o caminho direto para ir buscar o ficheiro.;
 include __DIR__ . '/../utilsData.php' ;
-echo(__DIR__);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt">
-
-
 <head>
-
     <title>Perdidos&Achados Menu</title>
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">

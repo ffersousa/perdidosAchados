@@ -48,3 +48,9 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
     </div>
   </div>
 </nav>
+ <?php 
+    error_reporting(0); 
+    session_start();
+    
+    echo "<a class= 'ml-1 text-success ' > {$_SESSION['username']}</a>";
+?>

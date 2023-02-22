@@ -11,6 +11,4 @@ if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
 // $_SERVER['HTTP_HOST'] = 'localhost/'
 $baseHref = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-echo $baseHref;
-
 ?>

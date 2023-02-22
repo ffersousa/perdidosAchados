@@ -1,5 +1,7 @@
 <?php
-include  '../database/db.php';
+include  __DIR__ .' /database/db.php';
+
+
 $emptyUsernameOrPassword = '';
 
 if ($_POST) { // Se existir um post, entra!
@@ -26,7 +28,7 @@ if ($_POST) { // Se existir um post, entra!
 			$_SESSION['loggedIn'] = true; // Creates a cookie saying the user is logged in
 
 
-			header("Location: painel.php \n"); // redireciona para pagina protegida.
+			header("Location: ./app/painel.php \n"); // redireciona para pagina protegida.
 		} else {
 			echo "Utilizador não encontrado";
 		}
@@ -37,7 +39,7 @@ if ($_POST) { // Se existir um post, entra!
 ?>
 
 
-<?php include './components/header.php';  ?>
+<?php include __DIR__ . '/app/components/header.php';  ?>
 
 <main class="row col-md-6 offset-md-3 text-center mt-5 mb-5">
 	<section class="row">
@@ -59,4 +61,4 @@ if ($_POST) { // Se existir um post, entra!
 <section class="row col-md-6 offset-md-3 mt-5 text center">
 	<a href="registo.php"> Novo utilizador </a>
 </section>
-<?php include './components/footer.php'; ?>
+<?php include __DIR__ .'/app/components/footer.php'; ?>

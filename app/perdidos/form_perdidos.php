@@ -1,8 +1,8 @@
 <?php
-include  '../database/db.php';
+include  '../../database/db.php';
 
-include '../login/components/header.php">';
-include '../login/components/menu.php">';
+include '../components/header.php">';
+include '../components/menu.php">';
 ?>
 	
 	<header class="row  text-center mt-5">
@@ -22,10 +22,9 @@ include '../login/components/menu.php">';
 				<input type="submit" class="btn btn-success mt-3" value="Enviar" class="button" />
 			</form>
 		</section>
-		<?php
-		if ($emptyUsernameOrPassword)
-			echo '<p>Username ou password vazio</p>'
-		?>
+		
 	</main>
 
-<?php include '../login/components/footer.php">'; ?>
+<?php 
+
+include '../components/footer.php">'; ?>

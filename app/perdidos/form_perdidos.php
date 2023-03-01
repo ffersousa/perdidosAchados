@@ -1,8 +1,9 @@
 <?php
-include  '../../database/db.php';
 
-include '../components/header.php">';
-include '../components/menu.php">';
+include( __DIR__ . '/../../database/db.php');
+include __DIR__ .'/../components/header.php';  
+include __DIR__ .'/../components/menu.php';  
+
 ?>
 	
 	<header class="row  text-center mt-5">

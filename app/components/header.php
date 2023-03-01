@@ -1,6 +1,6 @@
 <?php 
 //include __DIR__ . '/../utilsData.php'  cria o caminho direto para ir buscar o ficheiro.;
-include __DIR__ . '/../utilsData.php' ;
+include __DIR__ . '/../utils/utilsData.php' ;
 ?>
 
 <!DOCTYPE html>

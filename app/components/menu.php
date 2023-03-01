@@ -1,11 +1,21 @@
 <?php
+error_reporting(0);
+session_start();
+
 $httpProtocol = !isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ? 'http' : 'https';
 $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
+
+
 ?>
+
+<img src="../../assets/imagens/ESAG.jpg">
+<div class="d-block  text-right" style="text-align: right;padding:10px">
+
+<?php echo " <p class='ml-1 text-success'> Seja bem vindo   {$_SESSION['username']} </p>"; ?>
+</div>
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +31,7 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= $base  ?>perdidos/form_perdidos.php">Inserir Perdidos</a></li>
-            <li><a class="dropdown-item" href="#">Listar Perdidos</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/mostrar_perdidos.php">Listar Perdidos</a></li>
             <li><a class="dropdown-item" href="#">Remover Perdido </a></li>
           </ul>
         <li class="nav-item dropdown">
@@ -29,12 +39,12 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
             Utilizadores
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= $base  ?>inseredados.php">Inserir utilizador</a></li>
-            <li><a class="dropdown-item" href="<?= $base  ?>mostrardados.php">Listar utilizadores</a></li>
-            <li><a class="dropdown-item" href="<?= $base  ?>apagardados.php">Remover utilizadores</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>dados/inseredados.php">Inserir utilizador</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>dados/mostrardados.php">Listar utilizadores</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>dados/apagardados.php">Remover utilizadores</a></li>
           </ul>
         <li class="nav-item">
-          <a class="nav-link" href="<?= $base  ?>logout.php">Logout</a>
+          <a class="nav-link" href="<?= $base  ?>utilizadores/logout.php">Logout</a>
         </li>
         </li>
 
@@ -48,9 +58,3 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
     </div>
   </div>
 </nav>
- <?php 
-    error_reporting(0); 
-    session_start();
-    
-    echo "<a class= 'ml-1 text-success ' > {$_SESSION['username']}</a>";
-?>

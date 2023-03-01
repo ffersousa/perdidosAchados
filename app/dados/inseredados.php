@@ -1,5 +1,7 @@
 <?php
-include '../database/db.php';
+include(__DIR__ . '/../../database/db.php');
+include __DIR__ . '/../components/header.php';
+include __DIR__ . '/../components/menu.php';
 
 if ($_POST) { // Se existir um post, entra!
 
@@ -30,8 +32,6 @@ if ($_POST) { // Se existir um post, entra!
 
 ?>
 
-<?php include './components/header.php';  ?>
-<?php include './components/menu.php';  ?>
 
 <div class="col-md-6 offset-md-3 text-center bg-light  border-secondary mt-5 col-sm-12">
 	<h5 class=" text-secondary mt-5"> Inserir novo utilizador </h5>
@@ -58,5 +58,5 @@ if ($_POST) { // Se existir um post, entra!
 		<button type="submit" class="btn btn-primary mt-3 mb-3">Enviar</button>
 	</form>
 </div>
-<?php include './components/footer.php'; ?>
 
+<?php include __DIR__ . '/../components/footer.php'; ?>

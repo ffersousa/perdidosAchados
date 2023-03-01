@@ -1,6 +1,7 @@
 <?php
-include('../database/db.php');
-
+include( __DIR__ . '/../../database/db.php');
+include __DIR__ .'/../components/header.php';  
+include __DIR__ .'/../components/menu.php';  
 
 
 if ($_REQUEST && $_REQUEST['action'] == "del") {
@@ -19,8 +20,6 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 ?>
 
 
-<?php include './components/header.php';  ?>
-<?php include './components/menu.php';  ?>
 
 <div class="col-md-6 offset-md-3 text-center bg-light  border-secondary mt-5 col-sm-12">
 	<h5 class=" text-secondary"> Listagem de utilizadores</h5>
@@ -60,4 +59,4 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 <script type="text/javascript" src="../assets/paginar_tabelas.js"></script>
 
 
-<?php include './components/footer.php'; ?>
+<?php include __DIR__ . '/../components/footer.php'; ?>

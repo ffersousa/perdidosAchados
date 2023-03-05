@@ -1,6 +1,7 @@
 <?php
 include  __DIR__ . '/../database/db.php';
 $emptyUsernameOrPassword = '';
+//echo __DIR__;
 
 if ($_POST) { // Se existir um post, entra!
 
@@ -49,41 +50,66 @@ if ($_POST) { // Se existir um post, entra!
 
 
 	<div class="container">
-		<div class="row m-3 ">
-			<div class="p-1 card-title">
-				Se perdeste algo na ESAG podes registar o teu perdido aqui ou pesquisar nos achados
-			</div>
-			<section>
-				<img class="" src="../perdidosAchados/assets/imagens/menina1.jpg" alt="Perdidos e Achados">
-				
-			</section>
-		</div>
-		<div class="row m-3">
+		
+
+		<?php $httpProtocol = !isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ? 'http' : 'https';
+		$base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/'; ?>
+
+	  <div class="row">
+    	<div class= col-1></div>
+	 	 <div class="col-1">
+				<!-- vai inserir o logo da ESAG -->
+				<?php 
+					$pathImagens = $base. "../assets/imagens/";
+					$file = "ESAG.jpg";
+					echo '<img src="'.$pathImagens.$file.'">';
+				;?>
+    	</div>
+    <div class="col-10 text-secondary">
+			<h5>Se perdeste algo na ESAG podes registar o teu perdido aqui ou pesquisar nos achados</h5>
+    </div>
+    <div class="col d-block  text-right" style="text-align: right;padding:10px">
+   
+    </div>
+ 
+
+
+
+
+
+
+
+		<div class="row mt5">
+			<section class="col">
 			
-			<section class="row card pt-3">
+				
+				<img class="rounded mt-3 img-fluid" src="./assets/imagens/menina1.jpg" alt="Perdidos e Achados">
+				
+			</section >
+			<section class="col card pt-3 bg-success form-group">
 				<form action="index.php" method="post" class="col">
-					<label for="name" class=" lead card-text">Utilizador:</label>
-					<input type="text" name="username" class="input" value="" />
-					<br>
-					<label for="password" class="lead card-text">Password: </label>
-					<input type="password" name="password" class="input mt-1" value="" />
-					<br>
-					<input type="submit" class="btn btn-warning mt-3" value="Iniciar sessao" class="button" />
+				
+					
+					<input type="text" name="username" class="input form-control" placeholder="Utilizador" value="" />
+					
+					
+					<input type="password" name="password" class="input form-control mt-3" placeholder="Palavra passe" value="" />
+					
+					<input type="submit" class="btn btn-warning mt-3" value="Iniciar sessao" class="btn" />
 				</form>
 
 				<div class="col border-top mt-3 p-3">
-					<a href="registo.php" class="text-primary col col-lg-3 "> Novo utilizador </a>
+					<a href="registo.php" class="text-primary col col-lg-3   text-white"> Novo utilizador </a>
 				</div>
 			</section>			
 		</div>
 
 	</div>
-
-<div class="container">
-
-	<div class="row">
-				<h5 class=" "> Listagem de Achados</h5>
-					<table id="dtBasicExample" class="table table-striped table-hover">
+	
+	<div class="row mt-5">
+		<div class="col">
+				<h5 class=" "> Achados</h5>
+					<table id="dtBasicExample" class="table table-primary table-hover">
 						<tr>
 							<th scope="col">
 								<h6> Achado <h6>
@@ -110,11 +136,12 @@ if ($_POST) { // Se existir um post, entra!
 							}
 					?>
 					</table>
-	</div>
-	<hr class="hr" />
-	<div class="row">	
-				<h5 class=" "> Listagem de Perdidos</h5>
-				<table id="dtBasicExample" class=" table table-striped table-hover">
+		</div>
+	
+	
+		<div class="col">	
+				<h5 class=" "> Perdidos</h5>
+				<table id="dtBasicExample" class=" table table-secondary table-hover">
 					<thead>
 					<tr>
 						<th scope="col">
@@ -144,7 +171,7 @@ if ($_POST) { // Se existir um post, entra!
 				?>
 				</tbody>
 				</table>
-	</div>
+	</div>	
 
 
 

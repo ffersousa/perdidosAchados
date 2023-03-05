@@ -7,12 +7,26 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
 
 
 ?>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <?php 
 
-<img src="../../assets/imagens/ESAG.jpg">
-<div class="d-block  text-right" style="text-align: right;padding:10px">
+        
+          $pathImagens = $base. "../assets/imagens/";
+          $file = "ESAG.jpg";
+          echo '<img src="'.$pathImagens.$file.'">';
+      ;?>
+    </div>
+    <div class="col-6">
+    
+    </div>
+    <div class="col d-block  text-right" style="text-align: right;padding:10px">
+    <?php echo " <p class='ml-1 text-success'> Seja bem vindo   {$_SESSION['username']} </p>"; ?>
+    </div>
+  </div>
 
-<?php echo " <p class='ml-1 text-success'> Seja bem vindo   {$_SESSION['username']} </p>"; ?>
-</div>
+
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
@@ -30,7 +44,7 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
             Perdidos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/form_perdidos.php">Inserir Perdidos</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/inserirPerdidos.php">Inserir Perdidos</a></li>
             <li><a class="dropdown-item" href="<?= $base  ?>perdidos/mostrar_perdidos.php">Listar Perdidos</a></li>
             <li><a class="dropdown-item" href="#">Remover Perdido </a></li>
           </ul>

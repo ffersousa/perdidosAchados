@@ -9,14 +9,14 @@ if ($_POST) { // Se existir um post, entra!
 	$local = $_POST['localizacao'];
 	$data = $_POST['data'];
 	$imagem = " teste";
-	$cod_utilizador = '1';
+	$cod_utilizador = 1;
 
 	try {
 
 		
-		$sql = "INSERT INTO perdidos (desc, data, imagem, cod_utilizador, local) VALUES (?,?,?,1,?)";
+		$sql = "INSERT INTO perdidos (`desc`, `dataperdido`, `imagem`, `cod_utilizador`, `local`) VALUES (?,?,?,?,?)";
 		$stmt = $db->prepare($sql);
-		$perdido = $stmt->execute([$descricao, $data, $imagem, $local]);
+		$perdido = $stmt->execute([$descricao, $data, $imagem, $cod_utilizador, $local]);
 	} catch (Exception $e) {
 		print_r($e);
 	}

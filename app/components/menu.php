@@ -22,7 +22,9 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
     
     </div>
     <div class="col d-block  text-right" style="text-align: right;padding:10px">
-    <?php echo " <p class='ml-1 text-success'> Seja bem vindo   {$_SESSION['username']} </p>"; ?>
+    <?php echo " <p class='ml-1 text-success'> Seja bem vindo   {$_SESSION['username']} </p>";
+        
+    ?>
     </div>
   </div>
 

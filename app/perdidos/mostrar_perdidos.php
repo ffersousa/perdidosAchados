@@ -4,6 +4,7 @@ include __DIR__ .'/../components/header.php';
 include __DIR__ .'/../components/menu.php';  
 
 
+
 if ($_REQUEST && $_REQUEST['action'] == "del") {
 
 	try {
@@ -22,7 +23,7 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 
 
 <div class="col-md-6 offset-md-3 text-center bg-light  border-secondary mt-5 col-sm-12">
-	<h5 class=" text-secondary"> Listagem de Perdidos</h5>
+	<h5 class=" text-secondary"> Os Meus Perdidos</h5>
 	<table id="dtBasicExample" class="table">
 		<tr>
 			<th scope="col">
@@ -38,8 +39,17 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 
 			<?php
 			// Implementar uma solução mais abstracta.
-			$perdidos = $db->query("SELECT * from perdidos order by data")->fetchAll(); // vai buscar tudo na base de dados
-			//var_dump($perdidos);
+			session_start();
+			$id = $_SESSION['userid'];
+
+			echo $id;
+
+			//$stmt = $db->query("SELECT * from perdidos where id= ?  order by data")->fetchAll();
+
+			$sql = ("SELECT * FROM `perdidos` WHERE `cod_utilizador` = ?  order by data"); 		
+			$stmt = $db->prepare($sql);
+			$stmt->execute([$id]); 
+			$perdidos = $stmt->fetchAll();
 
 			foreach ($perdidos  as $perdido) {
 

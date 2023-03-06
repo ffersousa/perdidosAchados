@@ -16,7 +16,9 @@ if ($_POST) { // Se existir um post, entra!
 		$stmt->execute([$username, $password]);
 		$result = $stmt->fetch();
 
-		// remover tudo isto para o ficheiro a parte (como api/)
+		
+		
+
 
 		//echo (count($result));
 		if (count($result) > 0) // Se encontrou password porque está registado
@@ -25,7 +27,7 @@ if ($_POST) { // Se existir um post, entra!
 			session_start();
 			$_SESSION['username'] = $username; // Cria um cookie saving the username
 			$_SESSION['loggedIn'] = true; // Creates a cookie saying the user is logged in
-
+			$_SESSION['userid'] = $result['id'];
 
 			header("Location: app/painel.php \n"); // redireciona para pagina protegida.
 		} else {

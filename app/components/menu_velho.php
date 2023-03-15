@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(0);
 session_start();
 
@@ -10,9 +11,7 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
 <div class="container">
   <div class="row">
     <div class="col">
-      <?php 
-
-        
+      <?php        
           $pathImagens = $base. "../assets/imagens/";
           $file = "ESAG.jpg";
           echo '<img src="'.$pathImagens.$file.'">';
@@ -27,7 +26,6 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
     ?>
     </div>
   </div>
-
 
 
 <nav class="navbar navbar-expand-lg bg-light">
@@ -46,19 +44,9 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
             Perdidos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/inserirPerdidos.php">Inserir perdidos</a></li>
-            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/mostrar_perdidos.php">Listar meus perdidos</a></li>
-           
-          </ul>
-
-           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Achados
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/inserirPerdidos.php">Inserir achado</a></li>
-            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/mostrar_perdidos.php">Listar meus achados</a></li>
-           
+            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/inserirPerdidos.php">Inserir Perdidos</a></li>
+            <li><a class="dropdown-item" href="<?= $base  ?>perdidos/mostrar_perdidos.php">Listar Perdidos</a></li>
+            <li><a class="dropdown-item" href="#">Remover Perdido </a></li>
           </ul>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,9 +57,18 @@ $base = $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/perdidosAchados/app/';
             <li><a class="dropdown-item" href="<?= $base  ?>dados/mostrardados.php">Listar utilizadores</a></li>
             <li><a class="dropdown-item" href="<?= $base  ?>dados/apagardados.php">Remover utilizadores</a></li>
           </ul>
-          <li class="nav-item">
-          <a class="nav-link" href="<?= $base  ?> #">Conta</a>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="<?= $base  ?>utilizadores/logout.php">Logout</a>
         </li>

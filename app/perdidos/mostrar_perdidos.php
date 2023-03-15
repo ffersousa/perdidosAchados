@@ -38,13 +38,13 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 			</th>
 
 			<?php
-			// Implementar uma solução mais abstracta.
+			
 			session_start();
 			$id = $_SESSION['userid'];
 
-			echo $id;
+			
 
-			//$stmt = $db->query("SELECT * from perdidos where id= ?  order by data")->fetchAll();
+			
 
 			$sql = ("SELECT * FROM `perdidos` WHERE `cod_utilizador` = ?  order by data"); 		
 			$stmt = $db->prepare($sql);
@@ -57,8 +57,8 @@ if ($_REQUEST && $_REQUEST['action'] == "del") {
 		<tr>
 			<td> <?= $perdido['desc'] ?></td>
 			<!--<td> <?= $perdido['passw']  ?></td> -->
-			<td> <a href='alterardados.php?id=<?= $perdido['id'] ?>'> alterar </a></td>
-			<td> <a href='mostrardados.php?action=del&id=<?php echo $perdido['id']; ?>'> Apagar </a></td>
+			<td> <a href='alterardados.php?id=<?= $perdido['id'] ?>'> Visualizar </a></td>
+			<td> <a href='mostrardados.php?action=del&id=<?php echo $perdido['id']; ?>'> Remover </a></td>
 		</tr>
 	<?php
 			}
